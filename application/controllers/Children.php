@@ -14,6 +14,12 @@ class Children extends CI_Controller {
 		
 	}
 
+	public function register(){
+				
+		$this->load->view('childrenRegister');
+		
+	}
+
 	public function search(){
 				
 		$this->load->view('childrenSearch');

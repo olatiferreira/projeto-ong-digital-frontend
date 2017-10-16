@@ -2,7 +2,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="<?= base_url('index.php/dashboard')?>" class="logo">
+    <a href="<?= base_url('index.php/home')?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>ONG</b> Digital</span>
       <!-- logo for regular state and mobile devices -->
@@ -85,7 +85,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Menu de Navegação</li>
         <li>
-          <a href="<?= base_url('index.php/dashboard')?>">
+          <a href="<?= base_url('index.php/home')?>">
             <i class="fa fa-home"></i> <span>Dashboard</span>            
           </a>          
         </li>
@@ -99,8 +99,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?= base_url('index.php/children/register')?>"><i class="fa fa-plus"></i> Cadastrar</a></li>
-            <li><a href="<?= base_url('index.php/children/search')?>"><i class="fa fa-search"></i> Buscar</a></li>            
+            <li><a href="<?= base_url('index.php/user/register')?>"><i class="fa fa-plus"></i> Cadastrar</a></li>
+            <li><a href="<?= base_url('index.php/user/search')?>"><i class="fa fa-search"></i> Buscar</a></li>            
           </ul>
         </li>
       </ul>

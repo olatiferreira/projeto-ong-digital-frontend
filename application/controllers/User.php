@@ -14,7 +14,7 @@ class User extends CI_Controller {
 		$data = array();
 		
 		//Consumindo API
-		$url = 'http://localhost:9000/v1/hapies6referencia/users?limit=50';
+		$url = 'http://localhost:9000/v1/hapies6referencia/users';
 
 		$options = array(
 			'http'=>array(
@@ -28,8 +28,44 @@ class User extends CI_Controller {
 		$json = json_decode($file_content);
 		$data['users'] = $json->records;		
 
-		$this->load->view('childrenSearch', $data);
+		$this->load->view('userSearch', $data);
 		
 	}	
+
+	public function register(){
+				
+		$this->load->view('userRegister');
+		
+	}
+
+	public function search(){
+				
+		$this->load->view('userSearch');
+		
+	}
+
+	public function delete($id){		
+		$data = array();
+		
+		//Consumindo API
+		$url = 'http://localhost:9000/v1/hapies6referencia/users/'.$id;
+
+		$options = array(
+			'http'=>array(
+				'method'=>'DELETE',
+				'header'=>'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZX0.8IlVDHKrN_2jlk90pElgBkJAUbCI9gyuxYuodPGkm3s'
+			)
+		);
+
+		$context = stream_context_create($options);
+		$file_content = file_get_contents($url, false, $context);
+		$json = json_decode($file_content);
+		// $data['users'] = $json->records;
+
+		$data['statusCode'] = $http_response_header[0];		
+
+		$this->load->view('userSearch', $data);
+		
+	}
 	
 }

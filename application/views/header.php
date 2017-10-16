@@ -25,6 +25,7 @@
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/jquery-jvectormap.css')?>">
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/morris.css')?>">  
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/fonts/font-awesome/css/font-awesome.min.css')?>">     
+  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/sweetalert2.min.css')?>">     
   
   
   
@@ -70,6 +71,7 @@
   
   
   <script type="text/javascript" src="<?= base_url('assets/js/jquery-ui.min.js')?>"></script> 
+  <script type="text/javascript" src="<?= base_url('assets/js/sweetalert2.min.js')?>"></script>  
   
   
   

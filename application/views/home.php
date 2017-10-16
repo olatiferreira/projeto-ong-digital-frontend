@@ -16,7 +16,7 @@
           <li class="active">Dashboard</li>
         </ol>
       </section>
-
+      
       <!-- Main content -->
       <section class="content">
         <!-- Small boxes (Stat box) -->
@@ -25,7 +25,7 @@
             <!-- small box -->
             <div class="small-box bg-aqua">
               <div class="inner">
-                <h3>{{ 150 }}</h3>
+                <?php echo "<h3>".$qtdeChildren."</h3>"; ?>
 
                 <p>Crianças</p>
               </div>
@@ -42,7 +42,7 @@
             <!-- small box -->
             <div class="small-box bg-yellow">
               <div class="inner">
-                <h3>{{ 44 }}</h3>
+                <?php echo "<h3>".$qtdeUser."</h3>"; ?>
 
                 <p>Usuários</p>
               </div>

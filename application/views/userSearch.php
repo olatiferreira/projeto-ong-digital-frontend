@@ -36,12 +36,33 @@
           <div class="col-md-12">
             <div class="form-group">
 
+              <div class="col-md-12 centered">
+                <div class="col-md-offset-3 col-md-2">
+                  <input class="form-control form-control-lg" type="text" placeholder="Busca">
+                </div>
+
+                <div class="col-md-2">
+                  <select class="form-control form-control-lg">
+                     <option value="" disabled selected>Filtro</option>
+                     <option value="id">Código</option>
+                  </select>
+                </div>
+
+                <div class="col-md-2">
+                  <a href="<?= base_url('index.php/user')?>" class="btn btn-primary btn-md" role="button" aria-disabled="true">
+                    <i class="fa fa-search" aria-hidden="true"></i> Buscar
+                  </a>
+                </div>
+              </div>
+
+              
               <table class="table table-striped">
                 <thead>
                   <tr>
                     <th data-field="id"><u>Código</u></th>
                     <th data-field="name"><u>Nome</th>
-                      <th data-field="active"><u>Status</u></th>            
+                      <th data-field="active"><u>Status</u></th>
+                      <th data-field="action"><u>Ações</u></th>
                     </tr>
                   </thead>
                   <tbody>                                
@@ -52,10 +73,21 @@
                         <td>".$user->id."</td>
                         <td>".$user->name."</td>";
                         if ($user->active == true){
-                                echo "<td>Ativo</td>";
-                             }else{
-                              echo "<td>Inativo</td>";
-                             }                          
+                          echo "<td>Ativo</td>";
+                        }else{
+                          echo "<td>Inativo</td>";
+                        }                          
+                        echo "<td>
+                        <a href=''>
+                        <i class='fa fa-pencil'></i>
+                        </a>|   
+
+                        <a href=".base_url('index.php/user/delete/'.$user->id).">
+                        <i class='fa fa-trash' style='color: red'></i>
+                        </a>
+
+
+                        </td>";
                         echo "</tr>";
                       }          
                       echo "
@@ -63,23 +95,45 @@
                       <td></td>
                       <td></td>                                
                       <td></td>          
+                      <td></td> 
                       </tr>";
                     }
                     ?>
                   </tbody>
                 </table>
-
-                <div class="col-md-12" style="text-align: center">
-                  <a type="button" class="btn btn-default" href="<?= base_url('index.php/user')?>">Consultar Usuários</a>
-                </div>
-
+                
               </div>                
             </div>
           </div>
         </div>
       </section>
       <!-- /.content -->
-    </div>        
+    </div>
+
+    <?php
+    if (isset($statusCode)){
+      if ($statusCode == "HTTP/1.1 204 No Content"){
+        echo "<script>
+              swal(
+                'Excluído!',
+                'Registro apagado com sucesso!',
+                'success'
+              );
+              </script>";
+      }
+      else{
+        echo "<script>
+                swal(
+                  'Oops...',
+                  'Ocorreu um erro!',
+                  'error'
+                );
+              </script>";
+      }
+    }
+
+    ?>
+
 
 
 

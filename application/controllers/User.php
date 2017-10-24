@@ -14,7 +14,7 @@ class User extends CI_Controller {
 		$data = array();
 		
 		//Consumindo API
-		$url = 'http://localhost:9000/v1/hapies6referencia/users';
+		$url = 'http://localhost:9000/v1/users';
 
 		$options = array(
 			'http'=>array(
@@ -23,10 +23,12 @@ class User extends CI_Controller {
 			)
 		);
 
-		$context = stream_context_create($options);
-		$file_content = file_get_contents($url, false, $context);
+		$context = stream_context_create($options);		
+		$file_content = file_get_contents($url, false, $context);		
 		$json = json_decode($file_content);
-		$data['users'] = $json->records;		
+		$data['users'] = $json->records;
+
+		$data['statusCode'] = $http_response_header[0];			
 
 		$this->load->view('userSearch', $data);
 		
@@ -48,7 +50,7 @@ class User extends CI_Controller {
 		$data = array();
 		
 		//Consumindo API
-		$url = 'http://localhost:9000/v1/hapies6referencia/users/'.$id;
+		$url = 'http://localhost:9000/v1/users'.$id;
 
 		$options = array(
 			'http'=>array(

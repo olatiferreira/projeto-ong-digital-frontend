@@ -16,7 +16,7 @@
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/daterangepicker.css')?>">
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/bootstrap-datepicker.min.css')?>">
   <!-- <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/all.css')?>"> -->
-  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/bootstrap-colorpicker.min.css')?>">  
+  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/bootstrap-colorpicker.min.css')?>">    
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/select2.min.css')?>">  
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/AdminLTE.min.css')?>">
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/all-skins.min.css')?>">
@@ -25,8 +25,10 @@
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/jquery-jvectormap.css')?>">
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/morris.css')?>">  
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/fonts/font-awesome/css/font-awesome.min.css')?>">     
-  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/sweetalert2.min.css')?>">     
-  
+  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/sweetalert2.min.css')?>">    
+  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/build.css')?>">    
+  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/style.css')?>"> 
+    
   
   
 
@@ -47,7 +49,7 @@
   <script src="<?= base_url('assets/js/jquery.inputmask.js')?>"></script>
   <script src="<?= base_url('assets/js/jquery.inputmask.date.extensions.js')?>"></script>
   <script src="<?= base_url('assets/js/jquery.inputmask.extensions.js')?>"></script>
-  <script type="text/javascript" src="<?= base_url('assets/js/moment.min.js')?>"></script> 
+  <script type="text/javascript" src="<?= base_url('assets/js/moment.js')?>"></script> 
   <script type="text/javascript" src="<?= base_url('assets/js/daterangepicker.js')?>"></script> 
   <script type="text/javascript" src="<?= base_url('assets/js/bootstrap-datepicker.min.js')?>"></script> 
   <script src="<?= base_url('assets/js/bootstrap-colorpicker.min.js')?>"></script>
@@ -72,8 +74,8 @@
   
   <script type="text/javascript" src="<?= base_url('assets/js/jquery-ui.min.js')?>"></script> 
   <script type="text/javascript" src="<?= base_url('assets/js/sweetalert2.min.js')?>"></script>  
+  <script type="text/javascript" src="<?= base_url('assets/js/bootstrap-filestyle.js')?>"></script>  
   
   
   
 </head>
-<body class="hold-transition skin-blue sidebar-mini">  

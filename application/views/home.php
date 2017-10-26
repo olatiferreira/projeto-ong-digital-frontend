@@ -26,8 +26,8 @@
               <!-- small box -->
               <div class="small-box bg-aqua">
                 <div class="inner">
-                  <!-- <?php echo "<h3>".isset($qtdeChildren)."</h3>"; ?> -->
-                  <h3>{{11}}</h3>
+                  <?php echo "<h3>".$qtdeChildren."</h3>"; ?>
+                  <!-- <h3>{{11}}</h3> -->
 
                   <p>Crianças</p>
                 </div>
@@ -44,8 +44,8 @@
               <!-- small box -->
               <div class="small-box bg-yellow">
                 <div class="inner">
-                  <!-- <?php echo "<h3>".isset($qtdeUser)."</h3>"; ?> -->
-                  <h3>{{5}}</h3>
+                  <?php echo "<h3>".$qtdeUser."</h3>"; ?>
+                  <!-- <h3>{{5}}</h3> -->
 
                   <p>Usuários</p>
                 </div>

@@ -19,7 +19,7 @@ class User extends CI_Controller {
 		$options = array(
 			'http'=>array(
 				'method'=>'GET',
-				'header'=>'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZX0.8IlVDHKrN_2jlk90pElgBkJAUbCI9gyuxYuodPGkm3s'
+				'header'=>'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZX0.8IlVDHKrN_2jlk90pElgBkJAUbCI9gyuxYuodPGkm3s'				
 			)
 		);
 
@@ -34,16 +34,65 @@ class User extends CI_Controller {
 		
 	}	
 
-	public function register(){
-				
-		$this->load->view('userRegister');
+	public function register(){				
+		$this->load->view('userRegister');		
+	}
+
+	public function registerAPI(){
+
+		$data = array(
+			'name' => $this->input->post('name'),
+			'user' => $this->input->post('user'),
+			'pass' => $this->input->post('pass'),
+			'func' => $this->input->post('func'),
+			'privilegy' => $this->input->post('privilegy'),
+			'status' => $this->input->post('status'),
+			'entryDate' => date("Y-m-d")
+			);			
+		
+		//Consumindo API
+		$url = 'http://localhost:9000/v1/users';
+
+		//sending request (according to prosperworks documentation):
+    // use key 'http' even if you send the request to https://...
+    $options = array(
+        'http' => array(
+        	'method'  => 'POST',
+            'header'  => "Accept: application/json\r\n"."Content-Type: application/json\r\n".
+            "Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZX0.8IlVDHKrN_2jlk90pElgBkJAUbCI9gyuxYuodPGkm3s\r\n",
+            'content' => json_encode($data)
+        )
+    );  
+
+    $context  = stream_context_create( $options );
+	$result = file_get_contents( $url, false, $context );
+	if ($result === FALSE) { 
+		
+		$this->load->view('userSearch', $data);
+	} else{
+		$data['msg'] = 'ok';
+		$response = json_decode( $result );
+		$this->load->view('userSearch', $data);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
 		
 	}
 
-	public function search(){
-				
-		$this->load->view('userSearch');
-		
+	public function search(){				
+		$this->load->view('userSearch');		
 	}
 
 	public function delete($id){		

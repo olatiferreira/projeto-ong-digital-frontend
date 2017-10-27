@@ -36,7 +36,7 @@
           <div class="row">
             <div class="col-md-12">
 
-              <div class="col-md-offset-3 col-md-6">
+              <div class="col-md-6">
                 <label>Busca</label>
                 <div class="form-group input-group">                
                   <span class="input-group-addon"><i class="fa fa-search"></i></span>
@@ -44,21 +44,23 @@
                 </div>
               </div>
 
-            <!-- <div class="col-md-offset-3 col-md-6">
-              <label>Filtro</label>
-              <div class="form-group input-group">                
-                <span class="input-group-addon"><i class="fa fa-filter"></i></span>
-                <select class="form-control form-control-lg">
-                 <option value="" disabled selected>Filtro</option>
-                 <option value="id">Código</option>
-               </select>
+              <div class="col-md-6">
+                <label>Status</label>
+                <div class="form-group input-group">                
+                  <span class="input-group-addon"><i class="fa fa-filter"></i></span>
+                  <select class="form-control form-control-lg">
+                   <option value="" disabled selected>Status</option>
+                   <option value="todos" selected>Todos</option>
+                   <option value="liberados">Liberados</option>
+                   <option value="bloqueados">Bloqueados</option>
+                 </select>
+               </div>
              </div>
-           </div> -->
 
-           <div class="col-md-offset-3 col-md-2">
+           <!-- <div class="col-md-1">
             <div class="form-group">                
               <div class="checkbox checkbox-success">
-                <input type="radio" name="radio4" id="radio1" value="option1" checked>
+                <input type="radio" name="radio4" id="radio1" value="option1">
                 <label for="radio1">
                   Liberados
                 </label>
@@ -66,10 +68,10 @@
             </div>
           </div>
 
-          <div class="col-md-2">
+          <div class="col-md-1">
             <div class="form-group">                
               <div class="checkbox checkbox-success">
-                <input type="radio" name="radio4" id="radio2" value="option1" checked>
+                <input type="radio" name="radio4" id="radio2" value="option1">
                 <label for="radio2">
                   Bloqueados
                 </label>
@@ -77,7 +79,7 @@
             </div>
           </div>
 
-          <div class="col-md-2">            
+          <div class="col-md-1">            
             <div class="form-group">                
               <div class="checkbox checkbox-success">
                 <input type="radio" name="radio4" id="radio3" value="option1" checked>
@@ -86,7 +88,7 @@
                 </label>
               </div>             
             </div>
-          </div>
+          </div> -->
 
           <div class="col-md-12">
             <div class="form-group">
@@ -101,90 +103,90 @@
 
 
           <div class='col-md-12 table-responsive'>
-            <table class="table table-striped">
+            <table class="table table-striped table-bordered">
               <thead>
                 <tr>
-                  <th data-field="id"><u>Código</u></th>
-                  <th data-field="name"><u>Nome</th>
-                    <th data-field="active"><u>Usuário</u></th>
-                    <th data-field="active"><u>Função</u></th>
-                    <th data-field="action"><u>Data Inclusão</u></th>
-                    <th data-field="action"><u>Data Modificação</u></th>
-                    <th data-field="action"><u>Situação Atual</u></th>
-                    <th data-field="action"><u>Opções</u></th>
-                  </tr>
-                </thead>
-                <tbody>                                
-                  <?php
-                  if (isset($users)){
-                    foreach($users as $user){ 
-                      echo "<tr>
-                      <td>".$user->id."</td>
-                      <td>".$user->name."</td>
-                      <td>".$user->user."</td>
-                      <td>".$user->func."</td>
-                      <td>".$user->entryDate."</td>
-                      <td>".$user->updatedAt."</td>";
-                      if ($user->status == "liberado"){
-                        echo "<td><span class='label label-success'>Ativo</span></td>";
-                      }else{
-                        echo "<td><span class='label label-danger'>Inativo</span></td>";
-                      }                          
-                      echo "<td>
-                      <a href=''>
-                      <i class='fa fa-pencil'></i>
-                      </a>|   
+                  <th data-field="id"><center>Código</center></th>
+                  <th data-field="name"><center>Nome</center></th>
+                  <th data-field="active"><center>Usuário</center></th>
+                  <th data-field="active"><center>Função</center></th>
+                  <th data-field="action"><center>Data Inclusão</center></th>
+                  <th data-field="action"><center>Data Modificação</center></th>
+                  <th data-field="action"><center>Situação Atual</center></th>
+                  <th data-field="action"><center>Opções</center></th>
+                </tr>
+              </thead>
+              <tbody>                                
+                <?php
+                if (isset($users)){
+                  foreach($users as $user){ 
+                    echo "<tr>
+                    <td>".$user->id."</td>
+                    <td>".$user->name."</td>
+                    <td>".$user->user."</td>
+                    <td>".$user->func."</td>
+                    <td>".$user->entryDate."</td>
+                    <td>".$user->updatedAt."</td>";
+                    if ($user->status == "liberado"){
+                      echo "<td><span class='label label-success'>Ativo</span></td>";
+                    }else{
+                      echo "<td><span class='label label-danger'>Inativo</span></td>";
+                    }                          
+                    echo "<td>
+                    <a href=''>
+                    <i class='fa fa-pencil'></i>
+                    </a>|   
 
-                      <a href=".base_url('index.php/user/delete/'.$user->id).">
-                      <i class='fa fa-trash' style='color: red'></i>
-                      </a>
+                    <a href='javascript:confirmaDelete(".$user->id.")'>
+                    <i class='fa fa-trash' style='color: red'></i>
+                    </a>
 
 
-                      </td>";
-                      echo "</tr>";
-                    }                  
-                  }
-                  ?>
-                </tbody>
-              </table>
-            </div>
-
+                    </td>";
+                    echo "</tr>";
+                  }                  
+                }
+                ?>
+              </tbody>
+            </table>
           </div>
+
         </div>
       </div>
     </div>
+  </div>
 
-  </section>
-  <!-- /.content -->
+</section>
+<!-- /.content -->
 </div>
 
-<?php
-if (isset($statusCode)){
-  if ($statusCode == "HTTP/1.1 204 No Content"){
-    echo "<script>
-    swal(
-      'Excluído!',
-      'Registro apagado com sucesso!',
-      'success'
-    );
-    </script>";
-  }
-}
-?>
+<!-- Alert Cliente Deletado -->
+<script type="text/javascript">
 
-<?php
-if (isset($statusCode)){
-  if ($statusCode == "HTTP/1.1 404 Not Found"){
-    echo "<script>
-    swal(
-      'Excluído!',
-      'Registro apagado com sucesso!',
-      'success'
-    );
-    </script>";
+  function confirmaDelete(id){
+   
+
+    swal({
+      title: 'Você tem certeza?',
+      text: "Você não conseguirá reverter a ação posteriormente!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim, tenho certeza!'
+    }).then(function () {      
+      swal(
+        'Apagado!',
+        'Seu registro foi apagado com sucesso.',
+        'success'
+        )
+      window.location.replace("user/delete/"+id);
+    })
   }
-}
-?>
+
+</script>
+
+
 
 
 

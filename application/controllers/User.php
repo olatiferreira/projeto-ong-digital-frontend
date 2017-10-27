@@ -48,48 +48,33 @@ class User extends CI_Controller {
 			'privilegy' => $this->input->post('privilegy'),
 			'status' => $this->input->post('status'),
 			'entryDate' => date("Y-m-d")
-			);			
+		);			
 		
 		//Consumindo API
 		$url = 'http://localhost:9000/v1/users';
 
 		//sending request (according to prosperworks documentation):
     // use key 'http' even if you send the request to https://...
-    $options = array(
-        'http' => array(
-        	'method'  => 'POST',
-            'header'  => "Accept: application/json\r\n"."Content-Type: application/json\r\n".
-            "Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZX0.8IlVDHKrN_2jlk90pElgBkJAUbCI9gyuxYuodPGkm3s\r\n",
-            'content' => json_encode($data)
-        )
-    );  
+		$options = array(
+			'http' => array(
+				'method'  => 'POST',
+				'header'  => "Accept: application/json\r\n"."Content-Type: application/json\r\n".
+				"Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZX0.8IlVDHKrN_2jlk90pElgBkJAUbCI9gyuxYuodPGkm3s\r\n",
+				'content' => json_encode($data)
+			)
+		);  
 
-    $context  = stream_context_create( $options );
-	$result = file_get_contents( $url, false, $context );	
-	if ($result === FALSE) { 
-		$data['msg'] = 'error';
-		$data['statusCode'] = substr($http_response_header[0], 9, -9);		
-		$this->load->view('userRegister', $data);
-	} else{
-		$data['msg'] = 'ok';
-		$response = json_decode( $result );
-		$this->load->view('userRegister', $data);
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-			
-		
+		$context  = stream_context_create( $options );
+		$result = file_get_contents( $url, false, $context );	
+		if ($result === FALSE) { 
+			$data['msg'] = 'error';
+			$data['statusCode'] = substr($http_response_header[0], 9, -9);		
+			$this->load->view('userRegister', $data);
+		} else{
+			$data['msg'] = 'ok';
+			$response = json_decode( $result );
+			$this->load->view('userRegister', $data);
+		}		
 	}
 
 	public function search(){				
@@ -97,10 +82,11 @@ class User extends CI_Controller {
 	}
 
 	public function delete($id){		
+		
 		$data = array();
 		
 		//Consumindo API
-		$url = 'http://localhost:9000/v1/users'.$id;
+		$url = 'http://localhost:9000/v1/users/'.$id;
 
 		$options = array(
 			'http'=>array(
@@ -111,10 +97,8 @@ class User extends CI_Controller {
 
 		$context = stream_context_create($options);
 		$file_content = file_get_contents($url, false, $context);
-		$json = json_decode($file_content);
-		// $data['users'] = $json->records;
-
-		$data['statusCode'] = $http_response_header[0];		
+		$json = json_decode($file_content);	
+		var_dump($id);die;
 
 		$this->load->view('userSearch', $data);
 		

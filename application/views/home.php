@@ -34,7 +34,7 @@
                 <div class="icon">
                   <i class="fa fa-child"></i>
                 </div>
-                <a href="#" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="<?= base_url('index.php/children')?>" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
 
@@ -52,7 +52,7 @@
                 <div class="icon">
                   <i class="fa fa-users"></i>
                 </div>
-                <a href="#" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="<?= base_url('index.php/user')?>" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
 

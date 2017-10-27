@@ -65,14 +65,15 @@ class User extends CI_Controller {
     );  
 
     $context  = stream_context_create( $options );
-	$result = file_get_contents( $url, false, $context );
+	$result = file_get_contents( $url, false, $context );	
 	if ($result === FALSE) { 
-		
-		$this->load->view('userSearch', $data);
+		$data['msg'] = 'error';
+		$data['statusCode'] = substr($http_response_header[0], 9, -9);		
+		$this->load->view('userRegister', $data);
 	} else{
 		$data['msg'] = 'ok';
 		$response = json_decode( $result );
-		$this->load->view('userSearch', $data);
+		$this->load->view('userRegister', $data);
 	}
 
 

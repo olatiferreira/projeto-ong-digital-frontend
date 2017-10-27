@@ -12,7 +12,7 @@
         Cadastro de Usuário
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<?= base_url('index.php/dashboard')?>"><i class="fa fa-home"></i> Início</a></li>
+        <li><a href="<?= base_url('index.php/home')?>"><i class="fa fa-home"></i> Início</a></li>
         <li><a href="#">Usuários</a></li>
         <li class="active">Cadastrar</li>
       </ol>
@@ -42,7 +42,7 @@
                   <label>Nome</label>
                   <div class="form-group input-group">                
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input class="form-control form-control-lg" type="text" placeholder="Nome" id="name" name="name">
+                    <input class="form-control form-control-lg" type="text" placeholder="Nome" id="name" name="name" required>
                   </div>
                 </div>
 
@@ -50,7 +50,7 @@
                   <label>Usuário</label>
                   <div class="form-group input-group">
                     <span class="input-group-addon"><i class="fa fa-users"></i></span>                
-                    <input class="form-control form-control-lg" type="text" placeholder="Usuário" id="user" name="user">
+                    <input class="form-control form-control-lg" type="text" placeholder="Usuário" id="user" name="user" required>
                   </div>
                 </div>
 
@@ -58,7 +58,7 @@
                   <label>Senha</label>
                   <div class="form-group input-group">
                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>                
-                    <input class="form-control form-control-lg" type="password" user="password" placeholder="Senha" id="pass" name="pass">
+                    <input class="form-control form-control-lg" type="password" user="password" placeholder="Senha" id="pass" name="pass" required>
                   </div>
                 </div>
 
@@ -66,7 +66,7 @@
                   <label>Função</label>
                   <div class="form-group input-group">
                     <span class="input-group-addon"><i class="fa fa-cogs"></i></span>                
-                    <select class="form-control form-control-lg" id="func" name="func">
+                    <select class="form-control form-control-lg" id="func" name="func" required>
                      <option value="" disabled selected>Função</option>
                      <option value="voluntaria">Voluntária</option>
                      <option value="ajudante">Voluntária</option>
@@ -78,7 +78,7 @@
                 <label>Privilégio</label>
                 <div class="form-group input-group">
                   <span class="input-group-addon"><i class="fa fa-check"></i></span>                
-                  <select class="form-control form-control-lg" id="privilegy" name="privilegy">
+                  <select class="form-control form-control-lg" id="privilegy" name="privilegy" required>
                    <option value="" disabled selected>Privilégio</option>
                    <option value="adm">Administrador</option>
                    <option value="adm">Usuário</option>
@@ -90,7 +90,7 @@
               <label>Status</label>
               <div class="form-group input-group">
                 <span class="input-group-addon"><i class="fa fa-check"></i></span>                
-                <select class="form-control form-control-lg" id="status" name="status">
+                <select class="form-control form-control-lg" id="status" name="status" required>
                  <option value="" disabled selected>Status</option>
                  <option value="true">Ativo</option>
                  <option value="false">Inativo</option>
@@ -155,11 +155,24 @@ if (isset($statusCode)){
 <script type="text/javascript">
   function userSuccess(){
     swal("Usuário cadastrado com sucesso!", "", "success")
+  };
+  function userError(){
+    swal(
+      'Algo deu errado!',
+      'Já existe este usuário, verifique...',
+      'error'
+      )
   };  
 </script>
 <?php 
 if(isset($msg)){
-  echo "<script>userSuccess();</script>";
+  if ($msg == 'ok'){
+    echo "<script>userSuccess();</script>";
+  } else if ($msg == 'error') {
+    if ($statusCode == '409'){
+      echo "<script>userError();</script>";
+    }    
+  }
 }
 ?>
 

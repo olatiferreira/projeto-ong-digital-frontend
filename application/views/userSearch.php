@@ -127,7 +127,7 @@
                     <td>".$user->func."</td>
                     <td>".$user->entryDate."</td>
                     <td>".$user->updatedAt."</td>";
-                    if ($user->status == "liberado"){
+                    if ($user->status == "true"){
                       echo "<td><span class='label label-success'>Ativo</span></td>";
                     }else{
                       echo "<td><span class='label label-danger'>Inativo</span></td>";

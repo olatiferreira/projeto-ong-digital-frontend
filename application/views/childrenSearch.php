@@ -36,7 +36,7 @@
           <div class="row">
             <div class="col-md-12">
 
-              <div class="col-md-offset-3 col-md-6">
+              <div class="col-md-6">
                 <label>Busca</label>
                 <div class="form-group input-group">                
                   <span class="input-group-addon"><i class="fa fa-search"></i></span>
@@ -44,8 +44,8 @@
                 </div>
               </div>
 
-              <div class="col-md-offset-3 col-md-3">
-                <label>Data Nascimento</label>
+              <div class="col-md-3">
+                <label>Data Nascimento (Período)</label>
                 <div class="form-group input-group">
                   <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                   <input class="form-control form-control-lg" type="text" name="daterange" value=""/>
@@ -53,7 +53,7 @@
               </div>
 
               <div class="col-md-3">
-                <label>Data Entrada ONG</label>
+                <label>Data Entrada ONG (Período)</label>
                 <div class="form-group input-group">
                   <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                   <input class="form-control form-control-lg" type="text" name="daterange" value=""/>
@@ -73,188 +73,224 @@
               
 
               <div class='col-md-12 table-responsive'>
-                <table class="table table-striped">
+                <table class="table table-striped table-bordered">
                   <thead>
                     <tr>
-                      <th data-field="id"><u>Código</u></th>
-                      <th data-field="name"><u>Nome</th>
-                        <th data-field="rg"><u>RG</u></th>
-                        <th data-field="cpf"><u>CPF</u></th>
-                        <th data-field="color"><u>cor</u></th>
-                        <th data-field="sex"><u>Sexo</u></th>
-                        <th data-field="birth"><u>Aniversário</u></th>
-                        <th data-field="school"><u>Escola</u></th>
-                        <th data-field="responsibleCpf"><u>CPF Resp.</u></th>
-                        <th data-field="responsibleName"><u>Nome Resp.</u></th>
-                        <th data-field="responsiblePhone"><u>Tel Resp.</u></th>
-                        <th data-field="entryDate"><u>Data Entrada</u></th>
-                        <th data-field="description"><u>Situação</u></th>
-                        <th data-field="action"><u>Ações</u></th>
-                      </tr>
-                    </thead>
-                    <tbody>                                
-                      <tr>
-                        <td>1</td>
-                        <td>Maria das Dores</td>
-                        <td>45.759.004-x</td>
-                        <td>431.462.388-88</td>
-                        <td>Branco</td>
-                        <td>Masculino</td>                      
-                        <td>27/01/1996</td>                      
-                        <td>Antonio Fachada</td>                      
-                        <td>45.759.004-x</td>                      
-                        <td>Robson Luiz</td>                      
-                        <td>(16)99213-5689</td>                      
-                        <td>23/12/2016</td>                      
-                        <td><span class='label label-success'>Ativo</span></td>                    
-                        <td>
-                          <a href="#" data-toggle="modal" data-target="#exampleModal">
-                            <i class='fa fa-search' style='color: green'></i>
-                          </a>|
+                      <th data-field="id"><center>Código</center></th>
+                      <th data-field="name"><center>Nome</center></th>
+                      <th data-field="rg"><center>RG</center></th>
+                      <th data-field="cpf"><center>CPF</center></th>                        
+                      <th data-field="sex"><center>Sexo</center></th>
+                      <th data-field="birth"><center>Data Nasc.</center></th>
+                      <th data-field="school"><center>Escola</center></th>                                                
+                      <th data-field="entryDate"><center>Data Entrada</center></th>
+                      <th data-field="description"><center>Situação</center></th>
+                      <th data-field="action"><center>Ações</center></th>
+                    </tr>
+                  </thead>
+                  <tbody>                                
+                    <tr>
+                      <td>1</td>
+                      <td>Pedro Paulo da Silva Junior</td>
+                      <td>12.756.258-x</td>
+                      <td>123.123.123-88</td>                        
+                      <td>Masculino</td>                      
+                      <td>27/01/1996</td>                      
+                      <td>Antonio Fachada</td>                                                                    
+                      <td>23/12/2016</td>                      
+                      <td><span class='label label-success'>Ativo</span></td>                    
+                      <td>
+                        <a href="#" data-toggle="modal" data-target="#exampleModal">
+                          <i class='fa fa-search' style='color: green' title="Visualizar Documentos"></i>
+                        </a>|
 
-                          <a href=''>
-                            <i class='fa fa-pencil'></i>
-                          </a>| 
+                        <a href=''>
+                          <i class='fa fa-pencil' title="Editar"></i>
+                        </a>| 
 
-                          <a href=".base_url('index.php/user/delete/'.$user->id).">
-                            <i class='fa fa-trash' style='color: red'></i>
-                          </a>                      
+                        <a href=".base_url('index.php/user/delete/'.$user->id).">
+                          <i class='fa fa-trash' style='color: red' title="Excluir"></i>
+                        </a>                      
 
-                        </td></tr>
-                        
-                      </tbody>
-                    </table>
-                  </div>
-                  
-                  <!-- Modal -->
-                  <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Documentos</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>2</td>
+                      <td>Ítalo César Ferreira da Costa</td>
+                      <td>98.789.456</td>
+                      <td>654.321.654-65</td>                        
+                      <td>Masculino</td>                      
+                      <td>20/01/2000</td>                      
+                      <td>Pestalozzi</td>                                                                    
+                      <td>23/12/2016</td>                      
+                      <td><span class='label label-success'>Ativo</span></td>                    
+                      <td>
+                        <a href="#" data-toggle="modal" data-target="#exampleModal">
+                          <i class='fa fa-search' style='color: green' title="Visualizar Documentos"></i>
+                        </a>|
+
+                        <a href=''>
+                          <i class='fa fa-pencil' title="Editar"></i>
+                        </a>| 
+
+                        <a href=".base_url('index.php/user/delete/'.$user->id).">
+                          <i class='fa fa-trash' style='color: red' title="Excluir"></i>
+                        </a>                      
+
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Modal -->
+              <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h3 class="modal-title" id="exampleModalLabel">Documentos</h3>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+
+
+                    <div class="col-md-12">
+
+                      <div class="col-md-2 ml-auto">
+                        <center>
+                          <label>Documento 1</label><br><br>
+                          <i class="fa fa-file-pdf-o fa-4x" style="color:blue"></i><br><br>
+                          <span><b>Usuário: </b>DAI_CORREA</span>
+                        </center>
+                      </div>
+
+                      <div class="col-md-2 ml-auto">
+                        <center>
+                          <label>Documento 2</label><br><br>
+                          <i class="fa fa-file-pdf-o fa-4x" style="color:blue"></i><br><br>
+                          <span><b>Usuário: </b>DAI_CORREA</span>
+                        </center>
+                      </div>
+
+                      <div class="col-md-2 ml-auto">
+                        <center>
+                          <label>Documento 3</label><br><br>
+                          <i class="fa fa-file-pdf-o fa-4x" style="color:blue"></i><br><br>
+                          <span><b>Usuário: </b>DAI_CORREA</span>
+                        </center>
+                      </div>
+
+                      <div class="col-md-2 ml-auto">
+                        <center>
+                          <label>Documento 4</label><br><br>
+                          <i class="fa fa-file-pdf-o fa-4x" style="color:blue"></i><br><br>
+                          <span><b>Usuário: </b>DAI_CORREA</span>
+                        </center>
+                      </div>
+
+                      <div class="col-md-12"><br></div>
+
+                      <div class="col-md-6">
+                        <label>Descrição Documento</label>
+                        <div class="form-group input-group">                
+                          <span class="input-group-addon"><i class="fa fa-commenting"></i></span>
+                          <input class="form-control form-control-lg" type="text" placeholder="Descrição">
                         </div>
-                        <div class="modal-body">
+                      </div>
 
-                          <div class="col-md-12">
-                            <div class="col-md-8 ml-auto">
-                              <label>Documento 1</label>
-                              <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="<?= base_url('assets/ong_digital.pdf')?>"></iframe>
-                              </div>
-                            </div>
-                            
-                            <div class="col-md-4 ml-auto">
-                              <span><b>Usuário: </b></span>
-                              <span>DAI_CORREA</span>                            
-                            </div>                          
-                            <div class="col-md-4">
-                              <button type="button" class="btn btn-success">Visualizar</button>
-                            </div>                                                        
-                          </div>
-
-                          <div class="col-md-12">                            
-                            <hr class="style2">
-                          </div>
-
-                          <div class="col-md-12">
-                            <div class="col-md-8 ml-auto">
-                              <label>Documento 2</label>
-                              <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="<?= base_url('assets/ong_digital.pdf')?>"></iframe>
-                              </div>
-                            </div>
-                            
-                            <div class="col-md-4 ml-auto">
-                              <span><b>Usuário: </b></span>
-                              <span>DAI_CORREA</span>                            
-                            </div>                          
-                            <div class="col-md-4">
-                              <button type="button" class="btn btn-success">Visualizar</button>
-                            </div>                            
-                          </div>
-
-                          <div class="col-md-12">                            
-                            <hr class="style2">
-                          </div>
-
+                      <div class="col-md-6">
+                        <label>Anexar</label>
+                        <div class="form-group input-group">                
+                          <span class="input-group-addon"><i class="fa fa-paperclip"></i></span>
+                          <input  type="file" id="input03">
                         </div>
-                        <div class="modal-footer ml-auto">                          
-                          <div class="col-md-12">                          
-                            <input style="text-align: right;" type="file" id="input03">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>                          
-                          </div>
+                      </div>  
+
+                      <div class="col-md-12">
+                        <label>Tags</label>
+                        <div class="form-group input-group">                                            
+                          <input type="text" value="" data-role="tagsinput">
                         </div>
+                      </div>                            
+
+                    </div>
+
+                    <div class="modal-footer ml-auto">                          
+                      <div class="col-md-12">                                                    
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>                          
                       </div>
                     </div>
                   </div>
-
-
-                </div>                
+                </div>
               </div>
-            </div>
+
+
+            </div>                
           </div>
-        </section>
-        <!-- /.content -->
+        </div>
       </div>
+    </section>
+    <!-- /.content -->
+  </div>
 
-      <?php
-      if (isset($statusCode)){
-        if ($statusCode == "HTTP/1.1 204 No Content"){
-          echo "<script>
-          swal(
-            'Excluído!',
-            'Registro apagado com sucesso!',
-            'success'
-          );
-          </script>";
-        }
-        else{
-          echo "<script>
-          swal(
-            'Oops...',
-            'Ocorreu um erro!',
-            'error'
-          );
-          </script>";
-        }
-      }
-      ?>
+  <?php
+  if (isset($statusCode)){
+    if ($statusCode == "HTTP/1.1 204 No Content"){
+      echo "<script>
+      swal(
+        'Excluído!',
+        'Registro apagado com sucesso!',
+        'success'
+      );
+      </script>";
+    }
+    else{
+      echo "<script>
+      swal(
+        'Oops...',
+        'Ocorreu um erro!',
+        'error'
+      );
+      </script>";
+    }
+  }
+  ?>
 
-      <script type="text/javascript">
-        $(function() {
-          $('input[name="daterange"]').daterangepicker({
-           locale: {
-            format: 'DD-MM-YYYY'
-          },
-        });
-        });
-      </script>
+  <script type="text/javascript">
+    $(function() {
+      $('input[name="daterange"]').daterangepicker({
+       locale: {
+        format: 'DD-MM-YYYY'
+      },
+    });
+    });
+  </script>
 
-      <script type="text/javascript">      
+  <script type="text/javascript">      
 
-        $('#input03').filestyle({
-          badge: true,
+    $('#input03').filestyle({
+      badge: true,
         // input : false,
         btnClass : 'btn-primary',
         htmlIcon : '<span class="oi oi-folder"></span> '
       });
 
-        $('#countRed').on('click', function () {
-          $('#input03').filestyle('badgeName', 'badge-danger');
-        })
+    $('#countRed').on('click', function () {
+      $('#input03').filestyle('badgeName', 'badge-danger');
+    })
 
-        $('#countToggle').on('click', function () {
-          if ($('#input03').filestyle('badge'))
-            $('#input03').filestyle('badge', false);
-          else
-            $('#input03').filestyle('badge', true);
-        })
-      </script>
+    $('#countToggle').on('click', function () {
+      if ($('#input03').filestyle('badge'))
+        $('#input03').filestyle('badge', false);
+      else
+        $('#input03').filestyle('badge', true);
+    })
+  </script>
 
 
 
-      <!-- Chama o rodapé -->
-      <?php $this->load->view('footer')?>
+  <!-- Chama o rodapé -->
+  <?php $this->load->view('footer')?>

@@ -3,7 +3,6 @@
 <!-- Referência Menu -->
 <?php $this->load->view('menu')?>  
 
-
 <body class="hold-transition skin-blue sidebar-mini">  
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -37,119 +36,163 @@
           <div class="row">
             <div class="col-md-12">
 
-              <form>
+              <form action="<?= base_url('index.php/children/registerAPI')?>" method="POST">
 
-                <div class="col-md-offset-3 col-md-6">
+                <div class="col-md-6">
                   <label>Nome</label>
                   <div class="form-group input-group">                
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input class="form-control form-control-lg" type="text" placeholder="Nome">
+                    <input class="form-control form-control-lg" type="text" placeholder="Nome" id="name" name="name" required>
                   </div>
                 </div>
 
-                <div class="col-md-offset-3 col-md-2">
-                  <label>Data</label>
+                 <div class="col-md-3">
+                  <label>CPF</label>
+                  <div class="form-group input-group">                
+                    <span class="input-group-addon"><i class="fa fa-angle-double-right"></i></span>
+                    <input class="form-control form-control-lg" type="text" placeholder="CPF" id="cpf" name="cpf" required>
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <label>RG</label>
+                  <div class="form-group input-group">                
+                    <span class="input-group-addon"><i class="fa fa-angle-double-right"></i></span>
+                    <input class="form-control form-control-lg" type="text" placeholder="RG" id="rg" name="rg" required>
+                  </div>
+                </div>  
+
+                <div class="col-md-3">
+                  <label>Data Nascimento</label>
                   <div class="input-group date" data-provide="datepicker">
                     <div class="input-group-addon">
                       <span class="fa fa-calendar"></span>
                     </div>
-                    <input type="text" class="form-control">                  
+                    <input type="text" class="form-control" id="birth" name="birth" required>                  
                   </div>
-                </div>            
+                </div>  
 
-                <div class="col-md-2">
-                  <label>CPF</label>
+                <div class="col-md-3">
+                  <label>Sexo</label>
                   <div class="form-group input-group">                
                     <span class="input-group-addon"><i class="fa fa-angle-double-right"></i></span>
-                    <input class="form-control form-control-lg" type="text" id="user" placeholder="CPF">
-                  </div>
-                </div>
+                    <select class="form-control form-control-lg" id="sex" name="sex" required>
+                     <option value="" disabled selected>Sexo</option>
+                     <option value="liberado">Liberado</option>
+                     <option value="bloqueado">Bloqueado</option>                   
+                   </select>
+                 </div>
+               </div>          
 
-                <div class="col-md-2 col-md-offset-3-right">
-                  <label>RG</label>
-                  <div class="form-group input-group">                
-                    <span class="input-group-addon"><i class="fa fa-angle-double-right"></i></span>
-                    <input class="form-control form-control-lg" type="text" id="user" placeholder="RG">
-                  </div>
-                </div>             
-
-
-                <div class="col-md-offset-3 col-md-3">
+                <div class="col-md-6">
                   <label>Escola Atual</label>
                   <div class="form-group input-group">                
                     <span class="input-group-addon"><i class="fa fa-university"></i></span>
-                    <input class="form-control form-control-lg" type="text" id="user" placeholder="Escola Atual">
+                    <input class="form-control form-control-lg" type="text" placeholder="Escola Atual" id="school" name="school" required>
                   </div>
-                </div>
+                </div>              
 
                 <div class="col-md-3">
                   <label>Situação</label>
                   <div class="form-group input-group">                
                     <span class="input-group-addon"><i class="fa fa-angle-double-right"></i></span>
-                    <select class="form-control form-control-lg">
+                    <select class="form-control form-control-lg" id="situation" name="situation" required>
                      <option value="" disabled selected>Situação</option>
+                     <option value="liberado">Liberado</option>
+                     <option value="bloqueado">Bloqueado</option>                   
+                   </select>
+                 </div>
+               </div>              
+
+               <div class="col-md-3">
+                  <label>Cor</label>
+                  <div class="form-group input-group">                
+                    <span class="input-group-addon"><i class="fa fa-angle-double-right"></i></span>
+                    <select class="form-control form-control-lg" id="color" name="color" required>
+                     <option value="" disabled selected>Cor</option>
                      <option value="liberado">Liberado</option>
                      <option value="bloqueado">Bloqueado</option>                   
                    </select>
                  </div>
                </div>
 
-
-               <div class="col-md-12 centered">
-                <center>
-
-
-
-                 <div class="col-md-12"><br>
-                  <center>
-
-
-                    <button type="reset" class="btn btn-danger btn-md">
-                      <i class="fa fa-close left"></i> Cancelar
-                    </button>
-
-
-                    <a href="<?= base_url('index.php/user')?>" class="btn btn-success btn-md" role="button" aria-disabled="true">
-                      <i class="fa fa-floppy-o" aria-hidden="true"></i> Gravar
-                    </a>
-
-                  </center>
+                <div class="col-md-6">
+                  <label>Descrição</label>
+                  <div class="form-group input-group">                
+                    <span class="input-group-addon"><i class="fa fa-file-text-o"></i></span>
+                    <textarea class="form-control form-control-lg" type="text" placeholder="Descrição" style="resize: vertical" id="description" name="description" required></textarea>
+                  </div>
                 </div>
 
-              </form>
+                <h5><u><b>Dados do Reponsável</b></u></h5>
 
+                <div class="col-md-6">
+                  <label>Nome</label>
+                  <div class="form-group input-group">                
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <input class="form-control form-control-lg" type="text" placeholder="Nome" id="responsibleName" name="responsibleName">
+                  </div>
+                </div>
 
+                <div class="col-md-3">
+                  <label>CPF</label>
+                  <div class="form-group input-group">                
+                    <span class="input-group-addon"><i class="fa fa-angle-double-right"></i></span>
+                    <input class="form-control form-control-lg" type="text" placeholder="CPF" id="responsibleCpf" name="responsibleCpf">
+                  </div>
+                </div>
 
-            </div>
+                <div class="col-md-3">
+                  <label>Telefone</label>
+                  <div class="form-group input-group">                
+                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                    <input class="form-control form-control-lg" type="text" placeholder="Telefone" id="responsibleName" name="responsibleName">
+                  </div>
+                </div>
+
+               <div class="col-md-12"><br>              
+                 <center>
+                  <button type="reset" class="btn btn-danger btn-md col-md-offset-5 col-md-1">
+                    <i class="fa fa-close left"></i> Cancelar
+                  </button>
+                  <button type="submit" class="btn btn-success btn-md col-md-1" role="button" aria-disabled="true">
+                    <i class="fa fa-floppy-o" aria-hidden="true"></i> Gravar
+                  </button>
+                </center>
+              </div>
+
+            </form>
+
           </div>
         </div>
-      </section>
-      <!-- /.content -->
-    </div>
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
 
-    <?php
-    if (isset($statusCode)){
-      if ($statusCode == "HTTP/1.1 204 No Content"){
-        echo "<script>
-        swal(
-          'Excluído!',
-          'Registro apagado com sucesso!',
-          'success'
-        );
-        </script>";
-      }
-      else{
-        echo "<script>
-        swal(
-          'Oops...',
-          'Ocorreu um erro!',
-          'error'
-        );
-        </script>";
-      }
+  <?php
+  if (isset($statusCode)){
+    if ($statusCode == "HTTP/1.1 204 No Content"){
+      echo "<script>
+      swal(
+        'Excluído!',
+        'Registro apagado com sucesso!',
+        'success'
+      );
+      </script>";
     }
+    else{
+      echo "<script>
+      swal(
+        'Oops...',
+        'Ocorreu um erro!',
+        'error'
+      );
+      </script>";
+    }
+  }
 
-    ?>
+  ?>
 
-    <!-- Chama o rodapé -->
-    <?php $this->load->view('footer')?>
+  <!-- Chama o rodapé -->
+  <?php $this->load->view('footer')?>

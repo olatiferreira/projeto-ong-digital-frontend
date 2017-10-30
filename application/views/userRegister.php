@@ -68,8 +68,8 @@
                     <span class="input-group-addon"><i class="fa fa-cogs"></i></span>                
                     <select class="form-control form-control-lg" id="func" name="func" required>
                      <option value="" disabled selected>Função</option>
-                     <option value="voluntaria">Voluntária</option>
-                     <option value="ajudante">Voluntária</option>
+                     <option value="voluntario">Voluntária</option>
+                     <option value="ajudante">Ajudante</option>
                    </select>
                  </div>
                </div>    
@@ -81,7 +81,7 @@
                   <select class="form-control form-control-lg" id="privilegy" name="privilegy" required>
                    <option value="" disabled selected>Privilégio</option>
                    <option value="adm">Administrador</option>
-                   <option value="adm">Usuário</option>
+                   <option value="user">Usuário</option>
                  </select>
                </div>
              </div>

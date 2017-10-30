@@ -27,6 +27,7 @@
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/fonts/font-awesome/css/font-awesome.min.css')?>">     
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/sweetalert2.min.css')?>">    
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/build.css')?>">    
+  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/bootstrap-tagsinput.css')?>">    
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/style.css')?>"> 
     
   
@@ -75,6 +76,7 @@
   <script type="text/javascript" src="<?= base_url('assets/js/jquery-ui.min.js')?>"></script> 
   <script type="text/javascript" src="<?= base_url('assets/js/sweetalert2.min.js')?>"></script>  
   <script type="text/javascript" src="<?= base_url('assets/js/bootstrap-filestyle.js')?>"></script>  
+  <script type="text/javascript" src="<?= base_url('assets/js/bootstrap-tagsinput.js')?>"></script>  
   
   
   

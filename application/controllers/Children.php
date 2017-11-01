@@ -10,9 +10,29 @@ class Children extends CI_Controller {
 		$this->load->library('session');		
 	}
 
-	public function index(){		
+	public function index(){	
 
-		$this->load->view('childrenRegister');
+		$data = array();
+		
+		//Consumindo API
+		$url = 'http://localhost:9000/v1/children';
+
+		$options = array(
+			'http'=>array(
+				'method'=>'GET',
+				'header'=>'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZX0.8IlVDHKrN_2jlk90pElgBkJAUbCI9gyuxYuodPGkm3s'				
+			)
+		);
+
+		$context = stream_context_create($options);		
+		$file_content = file_get_contents($url, false, $context);		
+		$json = json_decode($file_content);
+		$data['childrens'] = $json->records;
+
+		$data['statusCode'] = $http_response_header[0];
+		// var_dump($data['childrens'][1]->childSituation->description); die;
+
+		$this->load->view('childrenSearch', $data);
 		
 	}
 

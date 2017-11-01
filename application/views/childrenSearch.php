@@ -64,7 +64,7 @@
                 <div class="form-group">
                   <center>
 
-                    <a href="<?= base_url('index.php/children/search')?>" class="btn btn-primary btn-md" role="button" aria-disabled="true">
+                    <a href="<?= base_url('index.php/children')?>" class="btn btn-primary btn-md" role="button" aria-disabled="true">
                       <i class="fa fa-search" aria-hidden="true"></i> Buscar
                     </a>
                   </center>
@@ -89,59 +89,39 @@
                     </tr>
                   </thead>
                   <tbody>                                
-                    <tr>
-                      <td>1</td>
-                      <td>Pedro Paulo da Silva Junior</td>
-                      <td>12.756.258-x</td>
-                      <td>123.123.123-88</td>                        
-                      <td>Masculino</td>                      
-                      <td>27/01/1996</td>                      
-                      <td>Antonio Fachada</td>                                                                    
-                      <td>23/12/2016</td>                      
-                      <td><span class='label label-success'>Ativo</span></td>                    
-                      <td>
-                        <a href="#" data-toggle="modal" data-target="#exampleModal">
-                          <i class='fa fa-search' style='color: green' title="Visualizar Documentos"></i>
+                <?php
+                if (isset($childrens)){
+                  foreach($childrens as $children){                     
+                    echo "<tr>
+                    <td>".$children->id."</td>
+                    <td>".$children->name."</td>
+                    <td>".$children->rg."</td>
+                    <td>".$children->cpf."</td>
+                    <td>".$children->sex."</td>
+                    <td>".$children->birth."</td>
+                    <td>".$children->school."</td>
+                    <td>".$children->entryDate."</td>
+                    <td>".$children->childSituation->description."</td>
+                    <td>
+                   <a href='#'' data-toggle='modal' data-target='#exampleModal'>
+                          <i class='fa fa-search' style='color: green' title='Visualizar Documentos'></i>
                         </a>|
 
                         <a href=''>
-                          <i class='fa fa-pencil' title="Editar"></i>
+                          <i class='fa fa-pencil' title='Editar'></i>
                         </a>| 
 
-                        <a href=".base_url('index.php/user/delete/'.$user->id).">
-                          <i class='fa fa-trash' style='color: red' title="Excluir"></i>
-                        </a>                      
+                        <a href='.base_url('index.php/user/delete/'.$user->id).'>
+                          <i class='fa fa-trash' style='color: red' title='Excluir'></i>
+                        </a>
 
-                      </td>
-                    </tr>
 
-                    <tr>
-                      <td>2</td>
-                      <td>Ítalo César Ferreira da Costa</td>
-                      <td>98.789.456</td>
-                      <td>654.321.654-65</td>                        
-                      <td>Masculino</td>                      
-                      <td>20/01/2000</td>                      
-                      <td>Pestalozzi</td>                                                                    
-                      <td>23/12/2016</td>                      
-                      <td><span class='label label-success'>Ativo</span></td>                    
-                      <td>
-                        <a href="#" data-toggle="modal" data-target="#exampleModal">
-                          <i class='fa fa-search' style='color: green' title="Visualizar Documentos"></i>
-                        </a>|
-
-                        <a href=''>
-                          <i class='fa fa-pencil' title="Editar"></i>
-                        </a>| 
-
-                        <a href=".base_url('index.php/user/delete/'.$user->id).">
-                          <i class='fa fa-trash' style='color: red' title="Excluir"></i>
-                        </a>                      
-
-                      </td>
-                    </tr>
-
-                  </tbody>
+                    </td>
+                    </tr>";
+                  }                  
+                }
+                ?>
+              </tbody>
                 </table>
               </div>
 
@@ -236,28 +216,31 @@
     <!-- /.content -->
   </div>
 
-  <?php
-  if (isset($statusCode)){
-    if ($statusCode == "HTTP/1.1 204 No Content"){
-      echo "<script>
+<!-- Alert Criança Deletado -->
+<script type="text/javascript">
+
+  function confirmaDelete(id){
+   
+
+    swal({
+      title: 'Você tem certeza?',
+      text: "Você não conseguirá reverter a ação posteriormente!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim, tenho certeza!'
+    }).then(function () {      
       swal(
-        'Excluído!',
-        'Registro apagado com sucesso!',
+        'Apagado!',
+        'Seu registro foi apagado com sucesso.',
         'success'
-      );
-      </script>";
-    }
-    else{
-      echo "<script>
-      swal(
-        'Oops...',
-        'Ocorreu um erro!',
-        'error'
-      );
-      </script>";
-    }
+        )
+      window.location.replace("user/delete/"+id);
+    })
   }
-  ?>
+
+</script>
 
   <script type="text/javascript">
     $(function() {

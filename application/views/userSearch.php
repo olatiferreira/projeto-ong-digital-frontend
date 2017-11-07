@@ -133,7 +133,7 @@
                       echo "<td><span class='label label-danger'>Inativo</span></td>";
                     }                          
                     echo "<td>
-                    <a href=''>
+                    <a href=".base_url('index.php/user/updateSearch/'.$user->id).">
                     <i class='fa fa-pencil'></i>
                     </a>|   
 
@@ -164,8 +164,6 @@
 <script type="text/javascript">
 
   function confirmaDelete(id){
-   
-
     swal({
       title: 'Você tem certeza?',
       text: "Você não conseguirá reverter a ação posteriormente!",
@@ -182,9 +180,18 @@
         )
       window.location.replace("user/delete/"+id);
     })
-  }
+  };
 
+  function userUpdate(){
+    swal("Usuário atualizado com sucesso!", "", "success")
+  };
 </script>
+
+<?php
+if ($msg == "updateOk"){
+  echo "<script>userUpdate();</script>";
+}
+?>
 
 
 

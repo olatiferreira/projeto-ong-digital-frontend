@@ -15,13 +15,13 @@
         <br>
       </p>
 
-      <form action="<?= base_url('index.php/home')?>" method="post">
+      <form action="<?= base_url('index.php/login/signIn')?>" method="post">
         <div class="form-group has-feedback">
-          <input type="email" class="form-control" placeholder="Usuário">
+          <input type="text" class="form-control" placeholder="Usuário" id="username" name="username" required>
           <span class="fa fa-user-circle-o form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-          <input type="password" class="form-control" placeholder="Senha">
+          <input type="password" class="form-control" placeholder="Senha" id="password" name="password" required>
           <span class="fa fa-lock form-control-feedback"></span>
         </div>
         <div class="row">

@@ -73,25 +73,47 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
+// $db['default'] = array(
+// 	'dsn'   => '', 
+// 	'hostname' => '',
+// 	'username' => '',
+// 	'password' => '',
+// 	'database' => '',
+// 	'dbdriver' => 'pdo',
+// 	'dbprefix' => '',
+// 	'pconnect' => FALSE,
+// 		// 'db_debug' => (ENVIRONMENT !== 'production'),
+// 	'db_debug' => FALSE,
+// 	'cache_on' => FALSE,
+// 	'cachedir' => '',
+// 	'char_set' => 'utf8',
+// 	'dbcollat' => 'utf8_general_ci',
+// 	'swap_pre' => '',
+// 	'encrypt' => FALSE,
+// 	'compress' => FALSE,
+// 	'stricton' => FALSE,
+// 	'failover' => array(),
+// 	'save_queries' => TRUE
+// 	);
+
 $db['default'] = array(
-	'dsn'   => '', 
-	'hostname' => '',
-	'username' => '',
-	'password' => '',
-	'database' => '',
-	'dbdriver' => 'pdo',
-	'dbprefix' => '',
-	'pconnect' => FALSE,
-		// 'db_debug' => (ENVIRONMENT !== 'production'),
-	'db_debug' => FALSE,
-	'cache_on' => FALSE,
-	'cachedir' => '',
-	'char_set' => 'utf8',
-	'dbcollat' => 'utf8_general_ci',
-	'swap_pre' => '',
-	'encrypt' => FALSE,
-	'compress' => FALSE,
-	'stricton' => FALSE,
-	'failover' => array(),
-	'save_queries' => TRUE
-	);
+ 'DSN'      => '',
+        'hostname' => 'localhost',
+        'username' => 'root',
+        'password' => '1234',
+        'database' => 'hapies6',
+        'DBDriver' => 'mysql',
+        'DBPrefix' => '',
+        'pConnect' => TRUE,
+        'DBDebug'  => TRUE,
+        'cacheOn'  => FALSE,
+        'cacheDir' => '',
+        'charset'  => 'utf8',
+        'DBCollat' => 'utf8_general_ci',
+        'swapPre'  => '',
+        'encrypt'  => FALSE,
+        'compress' => FALSE,
+        'strictOn' => FALSE,
+        'failover' => array(),
+
+);

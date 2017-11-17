@@ -106,12 +106,12 @@
                           <i class='fa fa-search' style='color: green' title='Visualizar Documentos'></i>
                         </a>|
 
-                        <a href=''>
-                          <i class='fa fa-pencil' title='Editar'></i>
-                        </a>| 
+                        <a href=".base_url('index.php/children/updateSearch/'.$children->id).">
+                          <i class='fa fa-pencil'></i>
+                        </a>|
 
-                        <a href='.base_url('index.php/user/delete/'.$user->id).'>
-                          <i class='fa fa-trash' style='color: red' title='Excluir'></i>
+                        <a href='javascript:confirmaDelete(".$children->id.")'>
+                          <i class='fa fa-trash' style='color: red'></i>
                         </a>
 
 
@@ -219,8 +219,6 @@
 <script type="text/javascript">
 
   function confirmaDelete(id){
-   
-
     swal({
       title: 'Você tem certeza?',
       text: "Você não conseguirá reverter a ação posteriormente!",
@@ -235,11 +233,20 @@
         'Seu registro foi apagado com sucesso.',
         'success'
         )
-      window.location.replace("user/delete/"+id);
+      window.location.replace("children/delete/"+id);
     })
-  }
+  };
 
+  function childrenUpdate(){
+    swal("Criança atualizada com sucesso!", "", "success")
+  };
 </script>
+
+<?php
+if ($msg == "updateOk"){
+  echo "<script>childrenUpdate();</script>";
+}
+?>
 
   <script type="text/javascript">
     $(function() {

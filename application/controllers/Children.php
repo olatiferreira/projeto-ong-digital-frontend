@@ -81,8 +81,8 @@ class Children extends CI_Controller {
 		);
 
 		$data['user'] = array(
-			'id' => 1,
-		);		
+			'id' => $this->session->userdata('codUser'),
+		);				
 		
 		//Consumindo API
 		$url = 'http://localhost:9000/v1/children';
@@ -100,13 +100,11 @@ class Children extends CI_Controller {
 		
 		$context  = stream_context_create( $options );
 		$result = file_get_contents( $url, false, $context );	
-		if ($result === FALSE) { 			
-			var_dump("erro");
+		if ($result === FALSE) { 						
 			$data['msg'] = 'error';
 			$data['statusCode'] = substr($http_response_header[0], 9, -9);		
 			$this->load->view('childrenRegister', $data);
-		} else{	
-			var_dump("cheguei");
+		} else{				
 			$data['msg'] = 'ok';
 			$response = json_decode( $result );
 			$this->load->view('childrenRegister', $data);

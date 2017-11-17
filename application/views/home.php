@@ -1,7 +1,6 @@
-    <!-- Referência cabeçalho -->
-    <?php $this->load->view('header')?>
-    <!-- Referência Menu -->
-    <?php $this->load->view('menu')?>      
+<?php $this->load->view('header')?>
+<?php $this->load->view('safety')?>
+<?php $this->load->view('menu')?>  
 
     <body class="hold-transition skin-blue sidebar-mini">  
       <!-- Content Wrapper. Contains page content -->

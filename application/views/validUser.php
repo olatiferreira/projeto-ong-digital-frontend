@@ -1,11 +1,3 @@
-<!-- Valida usuario e senha -->
-<?php
-if ($mensagem == 'Logado com sucesso!') {
-    //redirect('home');
-  $this->load->view("home");
-}
-  else{      
-    ?>
     <p></p>
     <?php $this->load->view('header')?>
     <script type="text/javascript">
@@ -16,14 +8,9 @@ if ($mensagem == 'Logado com sucesso!') {
           type: "error",
           closeOnConfirm: false,
           closeOnCancel: false,
-        },
-        function(){            
-          window.location.replace("../../index.php");
+        }).then(function() {
+          location.href = '../../index.php';
         });
       };
       usuarioError();
     </script>
-
-  <?php
-  }
-  ?>

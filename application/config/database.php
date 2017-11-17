@@ -75,11 +75,11 @@ $query_builder = TRUE;
 
 // $db['default'] = array(
 // 	'dsn'   => '', 
-// 	'hostname' => '',
-// 	'username' => '',
-// 	'password' => '',
-// 	'database' => '',
-// 	'dbdriver' => 'pdo',
+// 	'hostname' => 'localhost',
+// 	'username' => 'root',
+// 	'password' => '1234',
+// 	'database' => 'hapies6',
+// 	'dbdriver' => 'mysql',
 // 	'dbprefix' => '',
 // 	'pconnect' => FALSE,
 // 		// 'db_debug' => (ENVIRONMENT !== 'production'),
@@ -96,24 +96,18 @@ $query_builder = TRUE;
 // 	'save_queries' => TRUE
 // 	);
 
-$db['default'] = array(
- 'DSN'      => '',
-        'hostname' => 'localhost',
-        'username' => 'root',
-        'password' => '1234',
-        'database' => 'hapies6',
-        'DBDriver' => 'mysql',
-        'DBPrefix' => '',
-        'pConnect' => TRUE,
-        'DBDebug'  => TRUE,
-        'cacheOn'  => FALSE,
-        'cacheDir' => '',
-        'charset'  => 'utf8',
-        'DBCollat' => 'utf8_general_ci',
-        'swapPre'  => '',
-        'encrypt'  => FALSE,
-        'compress' => FALSE,
-        'strictOn' => FALSE,
-        'failover' => array(),
-
-);
+$db['default']['hostname'] = 'localhost:3306';
+$db['default']['username'] = 'root';
+$db['default']['password'] = '1234';
+$db['default']['database'] = 'hapies6';
+$db['default']['dbdriver'] = 'mysql';
+$db['default']['dbprefix'] = '';
+$db['default']['pconnect'] = TRUE;
+$db['default']['db_debug'] = TRUE;
+$db['default']['cache_on'] = FALSE;
+$db['default']['cachedir'] = '';
+$db['default']['char_set'] = 'utf8';
+$db['default']['dbcollat'] = 'utf8_general_ci';
+$db['default']['swap_pre'] = '';
+$db['default']['autoinit'] = TRUE;
+$db['default']['stricton'] = FALSE;

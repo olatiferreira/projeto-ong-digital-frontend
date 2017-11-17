@@ -1,6 +1,5 @@
-<!-- Referência cabeçalho -->
 <?php $this->load->view('header')?>
-<!-- Referência Menu -->
+<?php $this->load->view('safety')?>
 <?php $this->load->view('menu')?>  
 
 <body class="hold-transition skin-blue sidebar-mini">  

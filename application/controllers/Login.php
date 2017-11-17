@@ -7,7 +7,7 @@ class Login extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->helper('form');
-		$this->load->library('session');		
+		$this->load->library('session');				
 	}
 
 	public function index(){	
@@ -15,27 +15,42 @@ class Login extends CI_Controller {
 	}	
 
 	public function signIn(){	
-		// var_dump("?");
-		$teste = $this->db->query("SELECT * FROM usuario;")->result();
-		var_dump($teste);
-		// $this->load->model("Login");
-		// $username = $this->input->post("username");
-  //       $password = $this->input->post("password");
-  //       $usuario = $this->Login->authenticate($username,$password);
+		
+		$this->load->model("Login_model");
+		$username = $this->input->post("username");
+		$password = $this->input->post("password");
+		$usuario = $this->Login_model->authenticate($username,$password);
 
-  //       // sessão
-  //       //$this->session->set_userdata(array('nome' => 'click2call', 'usuario' => $username));
- 
+		if(($usuario) && ($usuario[status] == 'true')){			
+			$this->session->set_userdata(array('name' => 'session', 'username' => $username, 'codUser' => $usuario[coduser]));
+			$dados = array("mensagem" => "Logado com sucesso!");				
 
-		//  if($usuario){
-		//  	// $parametro = $this->SignIn_model->parametro();
-  //           $this->session->set_userdata(array('nome' => 'session', 'username' => $username, 'parametro' => $parametro['precoPizza'][0]->valor, 'data_movimento' => $parametro['data_movimento'][0]->valor));
-  //           $dados = array("mensagem" => "Logado com sucesso!");
-  //       }else{
-  //           $dados = array("mensagem" => "Não foi possível fazer o Login!");                        
-  //       }
- 
-  //       $this->load->view("validUser", $dados);        
-    }
-	
+			$data = array();
+
+			//Consumindo API
+			$qtdeUser = 'http://localhost:9000/v1/users';
+			$qtdeChildren = 'http://localhost:9000/v1/children';
+
+			$options = array(
+				'http'=>array(
+					'method'=>'GET',
+					'header'=>'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZX0.8IlVDHKrN_2jlk90pElgBkJAUbCI9gyuxYuodPGkm3s'
+				)
+			);
+
+			$context = stream_context_create($options);
+			$contentUser = file_get_contents($qtdeUser, false, $context);
+			$contentChildren = file_get_contents($qtdeChildren, false, $context);
+			$jsonUser = json_decode($contentUser);
+			$jsonChildren = json_decode($contentChildren);
+			$data['qtdeUser'] = $jsonUser->meta->recordCount;
+			$data['qtdeChildren'] = $jsonChildren->meta->recordCount;				
+
+			$this->load->view('home', $data);
+
+		}else{
+			$dados = array("mensagem" => "Não foi possível fazer o Login!");                        
+			$this->load->view("validUser", $dados);
+		}		
+	}	
 }

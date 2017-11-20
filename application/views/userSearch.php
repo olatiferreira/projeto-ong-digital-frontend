@@ -192,10 +192,5 @@ if ($msg == "updateOk"){
 }
 ?>
 
-
-
-
-
-
 <!-- Chama o rodapé -->
 <?php $this->load->view('footer')?>

@@ -240,6 +240,10 @@
   function childrenUpdate(){
     swal("Criança atualizada com sucesso!", "", "success")
   };
+
+  function childrenError(){
+    swal("Ocorreu um erro!", "verifique...", "error")
+  };
 </script>
 
 <?php

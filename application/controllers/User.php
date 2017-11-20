@@ -131,7 +131,7 @@ class User extends CI_Controller {
 		$data = array(
 			'name' => $this->input->post('name'),
 			'user' => $this->input->post('user'),
-			'pass' => "teste",
+			'pass' => "123",
 			'func' => $this->input->post('func'),
 			'privilegy' => $this->input->post('privilegy'),
 			'status' => $this->input->post('status')

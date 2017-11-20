@@ -43,7 +43,7 @@
                   <a href="#" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sair</a>
+                  <a href="<?= base_url('index.php/login')?>" class="btn btn-default btn-flat">Sair</a>
                 </div>
               </li>
             </ul>

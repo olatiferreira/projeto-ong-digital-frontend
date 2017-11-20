@@ -10,7 +10,7 @@ class Login_model extends CI_Model {
 	public function authenticate($username, $password){
         $this->db->select('coduser, status');
         $this->db->where("login", $username);
-        $this->db->where("senha", md5($password));
+        $this->db->where("senha", hash('sha256', $password));
         $usuario = $this->db->get("usuario")->row_array();
         
         return $usuario;

@@ -60,15 +60,14 @@ class Children extends CI_Controller {
 		$this->load->view('childrenRegister', $data);		
 	}
 
-	public function registerAPI(){
-
+	public function registerAPI(){		
 		$data = array(
 			'name' => $this->input->post('name'),
 			'cpf' => $this->input->post('cpf'),
 			'rg' => $this->input->post('rg'),
 			'color' => $this->input->post('color'),
 			'sex' => $this->input->post('sex'),
-			'birth' => date("Y-m-d"),
+			'birth' => $this->input->post('birth'),
 			'school' => $this->input->post('school'),
 			'responsibleCpf' => $this->input->post('responsibleCpf'),
 			'responsibleName' => $this->input->post('responsibleName'),

@@ -112,7 +112,7 @@
                   <th data-field="action"><center>Data Inclusão</center></th>
                   <th data-field="action"><center>Data Modificação</center></th>
                   <th data-field="action"><center>Situação Atual</center></th>
-                  <th data-field="action"><center>Opções</center></th>
+                  <th data-field="action"><center>Ações</center></th>
                 </tr>
               </thead>
               <tbody>                                

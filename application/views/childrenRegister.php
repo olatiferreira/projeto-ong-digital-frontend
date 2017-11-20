@@ -73,9 +73,9 @@
                       <div class="input-group-addon">
                         <span class="fa fa-calendar"></span>
                       </div>
-                      <input type="text" class="form-control" id="birth" name="birth" required>                  
+                      <input type="text" class="form-control" id="birth" name="birth" required>                      
                     </div>
-                  </div>  
+                  </div>                  
 
                   <div class="col-md-3">
                     <label>Sexo</label>
@@ -199,7 +199,14 @@
       'error'
       )
   };  
+
+  // function dateConvert(){  
+  //   var birth = $('#birth').val();    
+  //   var birthNew = birth.substring(6, 10) + '-' + birth.substring(3, 5) + '-' + birth.substring(0, 2);  
+  //   $("#birthNew").val(birthNew);
+  // };
 </script>
+
 <?php 
 if(isset($msg)){
   if ($msg == 'ok'){

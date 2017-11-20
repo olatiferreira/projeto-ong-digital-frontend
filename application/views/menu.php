@@ -106,6 +106,20 @@
 
         <li class="treeview">
           <a href="#">
+            <i class="fa fa-stethoscope"></i>
+            <span>Situação</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?= base_url('index.php/childrenSituation/register')?>"><i class="fa fa-plus"></i> Cadastrar</a></li>
+            <li><a href="<?= base_url('index.php/childrenSituation/search')?>"><i class="fa fa-search"></i> Buscar</a></li>            
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
             <i class="fa fa-user-circle"></i>
             <span>Usuários</span>
             <span class="pull-right-container">

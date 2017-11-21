@@ -67,7 +67,7 @@ class Children extends CI_Controller {
 			'rg' => $this->input->post('rg'),
 			'color' => $this->input->post('color'),
 			'sex' => $this->input->post('sex'),
-			'birth' => $this->input->post('birth'),
+			'birth' => date("Y-m-d"),
 			'school' => $this->input->post('school'),
 			'responsibleCpf' => $this->input->post('responsibleCpf'),
 			'responsibleName' => $this->input->post('responsibleName'),
